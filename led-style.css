@@ -1,0 +1,43 @@
+/* LED özel stilleri */
+.led-display {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    margin-bottom: 20px;
+}
+
+.led-schematic {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.led-symbol {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.led-body {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.led-light {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+} 

@@ -1,77 +1,94 @@
-# PN Junction Simulator
+# Yarı İletken Hesaplayıcı ve Simülatör
 
-Bu proje, yarıiletken PN junction'ın fiziksel özelliklerini ve davranışlarını simüle eden interaktif bir web uygulamasıdır.
+Bu proje, yarı iletken malzemelerin özelliklerini hesaplamak ve çeşitli elektronik devreleri simüle etmek için geliştirilmiş bir web uygulamasıdır.
 
 ## Özellikler
 
-### 1. Temel Hesaplamalar
-- Taşıyıcı yoğunluğu (elektron ve boşluk)
-- İletkenlik
-- Built-in potansiyel
-- Depletion bölgesi genişliği
+### Ana Hesaplayıcı
+- Yarı iletken malzeme parametrelerinin hesaplanması
+- Bant yapısı ve enerji seviyelerinin 3D görselleştirmesi
+- Sıcaklık ve katkılama etkilerinin analizi
+- İnteraktif parametre ayarlama
 
-### 2. Grafiksel Gösterimler
-- Band diyagramı
-  - İletim bandı (Ec)
-  - Valans bandı (Ev)
-  - Fermi seviyesi (Ef)
-  - Quasi-Fermi seviyeleri (forward/reverse bias durumunda)
+### LED Simülasyonu
+- Farklı LED tiplerinin (Kırmızı, Yeşil, Mavi, Beyaz) simülasyonu
+- İleri voltaj ve akım hesaplamaları
+- Güç tüketimi ve verimlilik analizi
+- Gerçek zamanlı LED parlaklık gösterimi
+- I-V karakteristik eğrisi
+- Güç-Voltaj grafiği
 
-- Elektrik alan dağılımı
-- Yük yoğunluğu dağılımı
-- Potansiyel dağılımı
+### Devre Simülasyonu
+- Çeşitli devre tiplerinin analizi:
+  - Diyot devreleri
+  - Köprü doğrultucu
+  - Gerilim regülatörü
+  - Yükselteç
+  - Anahtarlama devreleri
+- Dalga şekli analizi
+- Verimlilik ve güç hesaplamaları
+- Dalgalanma ve regülasyon analizi
 
-### 3. Ayarlanabilir Parametreler
-- Yarıiletken malzeme seçimi (Si, Ge, GaAs)
-- Sıcaklık
-- Donör konsantrasyonu (Nd)
-- Akseptör konsantrasyonu (Na)
-- Elektron ve boşluk mobilitesi
-- Bias voltajı
+## Hesaplanan Fiziksel Parametreler ve Formüller
 
-## Kullanım
-
-1. Yarıiletken malzemeyi seçin
-2. İstediğiniz parametreleri girin
-3. Bias voltajını ayarlayın
-4. "Hesapla" butonuna tıklayın
-5. Sonuçları ve grafikleri inceleyin
-
-## Teknik Detaylar
-
-### Kullanılan Teknolojiler
-- HTML5
-- CSS3
-- JavaScript
-- Chart.js (grafik çizimi için)
-
-### Hesaplanan Fiziksel Parametreler
-- Built-in potansiyel (Vbi)
-- Depletion bölgesi genişliği (W)
-- Elektrik alan dağılımı (E)
-- Yük yoğunluğu dağılımı (ρ)
-- Potansiyel dağılımı (V)
-- Taşıyıcı yoğunlukları (n, p)
-- İletkenlik (σ)
-
-### Formüller ve Hesaplamalar
+### Yarı İletken Hesaplamaları
 - Built-in potansiyel: Vbi = (kT/q)ln(NaNd/ni²)
 - Depletion genişliği: W = √(2ε(Na+Nd)Vbi/qNaNd)
 - Elektrik alan: E = (qNd/ε)x
 - Yük yoğunluğu: ρ = qNd (n-bölgesi), -qNa (p-bölgesi)
 - İletkenlik: σ = q(nμn + pμp)
 
-## Veri Dışa Aktarma
-- Hesaplanan değerler JSON formatında dışa aktarılabilir
-- Grafikler ve sonuçlar kaydedilebilir
+### LED Hesaplamaları
+- İleri akım: IF = IS(e^(VF/VT) - 1)
+- Güç tüketimi: P = VF × IF
+- Verimlilik: η = (Poptik/Pelektrik) × 100
+- Işık şiddeti: Iv = IF × η × K (K: LED'e özgü sabit)
 
-## Geliştirici Notları
-- Tüm hesaplamalar gerçek fiziksel sabitleri kullanır
-- Sıcaklık bağımlı hesaplamalar dahil edilmiştir
-- Bias voltajının etkisi tüm parametrelerde hesaba katılmıştır
+### Devre Hesaplamaları
+- Diyot düşümü: VD = VF + IFRD
+- Dalgalanma gerilimi: Vr = Ip/(2fC)
+- Regülasyon: R = ((VNL - VFL)/VFL) × 100
+- Verimlilik: η = (Pçıkış/Pgiriş) × 100
+- Güç kaybı: PD = VIN × IIN - VOUT × IOUT
+
+### Kullanılan Sabitler
+- Boltzmann sabiti (k): 1.380649 × 10^-23 J/K
+- Elektronik yük (q): 1.602176634 × 10^-19 C
+- Mutlak sıcaklık (T): 300K (varsayılan)
+- Silisyum için ni: 1.5 × 10^10 cm^-3
+- Vakum dielektrik sabiti (ε0): 8.854 × 10^-14 F/cm
+
+## Teknik Özellikler
+- Dinamik tema değiştirme (Açık/Koyu)
+- Çoklu dil desteği (Türkçe/İngilizce)
+- Responsive tasarım
+- İnteraktif grafikler ve görselleştirmeler
+- Gerçek zamanlı hesaplamalar
+
+## Kullanılan Teknolojiler
+- HTML5
+- CSS3
+- JavaScript
+- Three.js (3D görselleştirme)
+- Chart.js (Grafik çizimi)
+
+## Kurulum
+1. Projeyi klonlayın
+2. İndex.html dosyasını bir web tarayıcısında açın
+3. Herhangi bir ek kurulum gerekmez
+
+## Geliştirme Planı
+- [ ] Yeni devre tipleri ekleme
+- [ ] PCB tasarım aracı
+- [ ] Komponent veritabanı
+- [ ] Simülasyon sonuçlarını dışa aktarma
+- [ ] Eğitim modülü ve örnekler
 
 ## Lisans
-MIT License
+Bu proje MIT lisansı altında lisanslanmıştır.
 
-## İletişim
-[İletişim bilgileriniz] 
+## Proje Sahibi
+Doğukan Avcı
+
+## Son Güncelleme
+27.03.2024 

@@ -57,6 +57,7 @@ const zoomOptions = {
 // Sayfa yüklendiğinde grafikleri oluştur
 window.onload = function() {
     initializeCharts();
+    calculate();
 };
 
 function initializeCharts() {

@@ -1,0 +1,135 @@
+.waveform-container {
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.calculate-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .calculate-btn {
+    background: linear-gradient(135deg, #2196F3, #4CAF50);
+}
+
+[data-theme="dark"] .calculate-btn {
+    background: linear-gradient(135deg, #2c5e2e, #1a4b94);
+}
+
+.results {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.results h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.results p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.results span {
+    color: var(--text-color);
+}
+
+.output-value {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.component-values {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.chart-box {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    min-width: 0;
+}
+
+.chart-legend {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.input-legend {
+    background: #4CAF50;
+}
+
+.output-legend {
+    background: #2196F3;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.input-section {
+    width: 300px;
+}
+
+.graph-section {
+    width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-section {
+        width: 100%;
+    }
+} 
