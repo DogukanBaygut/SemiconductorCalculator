@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    /* Aydınlık mod renkleri */
+    --bg-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --border-color: #dddddd;
+    --header-gradient: linear-gradient(135deg, #6e8efb, #a777e3);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    /* Karanlık mod renkleri */
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #404040;
+    --header-gradient: linear-gradient(135deg, #4a5d9d, #6b4b8a);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 40px 20px 20px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    font-size: 2.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 20px;
+}
+
+.input-section {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.input-group {
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.results {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+}
+
+.results h3 {
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.results p {
+    margin: 5px 0;
+    color: var(--text-secondary);
+}
+
+.graph-section {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: var(--card-bg);
+    border-radius: 5px;
+    min-width: 1000px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* İlk iki grafik için özel stil */
+.chart-container:not(:last-child) {
+    margin-left: 40px; /* Sağa kaydırma miktarı */
+    width: calc(100% - 40px); /* Genişliği kaydırma miktarı kadar azalt */
+}
+
+.chart-container:last-child {
+    height: 500px;
+    margin-bottom: 0;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.secondary-button {
+    background: linear-gradient(135deg, #a777e3, #6e8efb);
+    margin-top: 10px;
+}
+
+.diagram-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.legend-item span {
+    width: 20px;
+    height: 3px;
+    display: inline-block;
+}
+
+.ec {
+    background-color: #2196F3;
+}
+
+.ef {
+    background-color: #FF9800;
+}
+
+.ev {
+    background-color: #4CAF50;
+}
+
+.field {
+    background-color: #FF4081;
+}
+
+.charge {
+    background-color: #4CAF50;
+}
+
+.potential {
+    background-color: #2196F3;
+}
+
+@media (max-width: 1600px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+@media (max-width: 1200px) {
+    .chart-container {
+        min-width: 600px;
+    }
+}
+
+/* Bias kontrolü için stiller */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #ff6b6b, #339af0);
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #6e8efb;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.bias-value {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+#biasType {
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.language-selector {
+    position: relative;
+    width: auto;
+}
+
+.language-selector select {
+    width: 100px;
+    padding: 5px 25px 5px 10px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.language-selector select:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.language-selector select option {
+    background: white;
+    color: #333;
+    padding: 10px;
+} 
