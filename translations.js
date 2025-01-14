@@ -69,7 +69,18 @@ const translations = {
         diodeDropVoltageInput: "Diyot Düşüm Gerilimi (V)",
         capacitanceInput: "Kapasitans (µF)",
         outputVoltageInput: "Çıkış Gerilimi (V)",
-        dropoutVoltageInput: "Dropout Gerilimi (V)"
+        dropoutVoltageInput: "Dropout Gerilimi (V)",
+        login: "Giriş Yap",
+        register: "Kayıt Ol",
+        email: "E-posta:",
+        password: "Şifre:",
+        confirmPassword: "Şifre Tekrar:",
+        name: "Ad Soyad:",
+        loginButton: "Giriş Yap",
+        registerButton: "Kayıt Ol",
+        noAccount: "Hesabınız yok mu?",
+        haveAccount: "Zaten hesabınız var mı?",
+        logout: "Çıkış Yap"
     },
     en: {
         title: "Semiconductor Calculator",
@@ -141,6 +152,17 @@ const translations = {
         diodeDropVoltageInput: "Diode Drop Voltage (V)",
         capacitanceInput: "Capacitance (µF)",
         outputVoltageInput: "Output Voltage (V)",
-        dropoutVoltageInput: "Dropout Voltage (V)"
+        dropoutVoltageInput: "Dropout Voltage (V)",
+        login: "Login",
+        register: "Register",
+        email: "Email:",
+        password: "Password:",
+        confirmPassword: "Confirm Password:",
+        name: "Full Name:",
+        loginButton: "Login",
+        registerButton: "Register",
+        noAccount: "Don't have an account?",
+        haveAccount: "Already have an account?",
+        logout: "Logout"
     }
 }; 

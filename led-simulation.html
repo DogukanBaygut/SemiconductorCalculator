@@ -7,30 +7,37 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="led-style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="top-bar">
-                <div class="left-section">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="index.html" data-translate="title">Yarı İletken Hesaplayıcı</a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Ana Sayfa</a>
+                    <a href="led-simulation.html" class="nav-link active" data-translate="ledSimulation">LED Simülasyonu</a>
+                    <a href="circuit-simulation.html" class="nav-link" data-translate="circuitSimulation">Devre Simülasyonu</a>
+                </div>
+                <div class="nav-controls">
                     <div class="language-selector">
                         <select id="languageSelect" onchange="changeLanguage(this.value)">
-                            <option value="tr">Türkçe</option>
-                            <option value="en">English</option>
+                            <option value="tr">🇹🇷 TR</option>
+                            <option value="en">🇬🇧 EN</option>
                         </select>
                     </div>
-                    <a href="index.html" class="nav-button" data-translate="backToMain">
-                        Ana Sayfaya Dön
-                    </a>
-                </div>
-                <div class="right-section">
                     <button class="theme-toggle" onclick="toggleTheme()">
                         <i class="fas fa-sun"></i>
                         <i class="fas fa-moon"></i>
                     </button>
+                    <div class="auth-section">
+                        <!-- Bu div auth.js tarafından dinamik olarak doldurulacak -->
+                    </div>
                 </div>
-            </div>
-            <h1 data-translate="title">LED Simülasyonu</h1>
+            </nav>
+            <h1>LED Simülasyonu</h1>
             <p data-translate="subtitle">LED parametrelerini ayarlayarak simülasyonu başlatın</p>
         </div>
 
@@ -96,6 +103,7 @@
         </div>
     </div>
     <script src="translations.js"></script>
+    <script src="auth.js"></script>
     <script src="led-simulation.js"></script>
 </body>
 </html> 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="top-bar">
+                <div class="left-section">
+                    <div class="language-selector">
+                        <select id="languageSelect" onchange="changeLanguage(this.value)">
+                            <option value="tr">Türkçe</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2 data-translate="register">Kayıt Ol</h2>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <label for="registerName" data-translate="name">Ad Soyad:</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="registerEmail" data-translate="email">E-posta:</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="registerPassword" data-translate="password">Şifre:</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmPassword" data-translate="confirmPassword">Şifre Tekrar:</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" data-translate="registerButton">Kayıt Ol</button>
+                </form>
+                <p class="switch-form">
+                    <span data-translate="haveAccount">Zaten hesabınız var mı?</span>
+                    <a href="login.html" data-translate="login">Giriş Yap</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="translations.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html> 

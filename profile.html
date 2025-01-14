@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="top-bar">
+                <div class="left-section">
+                    <div class="language-selector">
+                        <select id="languageSelect" onchange="changeLanguage(this.value)">
+                            <option value="tr">Türkçe</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <a href="index.html" class="nav-button">Ana Sayfaya Dön</a>
+                </div>
+                <div class="right-section">
+                    <div class="auth-buttons">
+                        <!-- Bu div auth.js tarafından dinamik olarak doldurulacak -->
+                    </div>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="profile-container">
+            <div class="profile-header">
+                <h2>Profil Bilgileri</h2>
+            </div>
+            <div class="profile-content">
+                <div class="profile-avatar">
+                    <img id="userAvatar" src="default-avatar.png" alt="Profil Resmi">
+                    <button onclick="changeAvatar()">Resmi Değiştir</button>
+                </div>
+                <form id="profileForm">
+                    <div class="input-group">
+                        <label>Ad Soyad</label>
+                        <input type="text" id="profileName">
+                    </div>
+                    <div class="input-group">
+                        <label>E-posta</label>
+                        <input type="email" id="profileEmail" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>Yeni Şifre</label>
+                        <input type="password" id="newPassword">
+                    </div>
+                    <div class="input-group">
+                        <label>Şifre Tekrar</label>
+                        <input type="password" id="confirmNewPassword">
+                    </div>
+                    <button type="submit">Bilgileri Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="translations.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Profil formunu yönet
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const name = document.getElementById('profileName').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+            if (newPassword && newPassword !== confirmNewPassword) {
+                alert('Şifreler eşleşmiyor!');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3001/api/update-profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        name,
+                        newPassword: newPassword || undefined
+                    })
+                });
+
+                if (response.ok) {
+                    const updatedUser = await response.json();
+                    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                    alert('Profil başarıyla güncellendi!');
+                } else {
+                    throw new Error('Profil güncellenirken bir hata oluştu');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Sayfa yüklendiğinde profil bilgilerini doldur
+        window.addEventListener('DOMContentLoaded', async () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('profileName').value = currentUser.name;
+                document.getElementById('profileEmail').value = currentUser.email;
+            }
+        });
+    </script>
+</body>
+</html> 
